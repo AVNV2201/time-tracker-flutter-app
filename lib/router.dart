@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_tracker/pages/home.dart';
 import 'package:time_tracker/pages/splash.dart';
 
 class MyRouter{
@@ -21,8 +22,8 @@ class MyRouter{
     print(param);
 
     switch(route){
-      // case Home.routeName:
-      //   return MaterialPageRoute(builder: (_) => Home() );
+      case Home.routeName:
+        return MaterialPageRoute(builder: (_) => Home() );
       case Splash.routeName:
         return MaterialPageRoute(builder: (_) => Splash());
       // case Profile.routeName:

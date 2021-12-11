@@ -15,7 +15,7 @@ class AppData {
       // load the theme mode
       bool isDark = await SPManager.getThemeMode();
       if(isDark != currentTheme.isDarkTheme)
-        currentTheme.toggleTheme(isDark);
+        currentTheme.toggleTheme(true);
 
       return MyResponse.success();
     } catch (e) {

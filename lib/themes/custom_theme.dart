@@ -5,8 +5,8 @@ class CustomTheme with ChangeNotifier{
 
   double myFontSize = MyTextTheme.mediumFont;
   bool isCompact = false;
-  bool isDarkTheme = false;
-  // bool isDarkTheme = true;
+  // bool isDarkTheme = false;
+  bool isDarkTheme = true;
   ThemeMode get currentTheme => isDarkTheme ? ThemeMode.dark : ThemeMode.light;
 
   void toggleTheme(bool value) {

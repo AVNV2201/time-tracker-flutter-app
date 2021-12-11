@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:time_tracker/models/my_response.dart';
+import 'package:time_tracker/pages/home.dart';
+import 'package:time_tracker/providers/app_data.dart';
 import 'package:time_tracker/widgets/app_logo.dart';
+import 'package:time_tracker/widgets/my_dialogs.dart';
 
 class Splash extends StatefulWidget {
 
@@ -14,7 +18,13 @@ class _SplashState extends State<Splash> {
 
   void _loadData() async {
 
-    // MyResponse myResponse = await appData.loadData();
+    MyResponse myResponse = await appData.loadData();
+
+    if(myResponse.success)
+      Navigator.pushReplacementNamed(context, Home.routeName);
+    else
+      MyDialogs.showErrorDialog(context);
+
 
   }
 
