@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:time_tracker/pages/splash.dart';
 import 'package:time_tracker/router.dart';
 import 'package:time_tracker/themes/config.dart';
-import 'package:time_tracker/utils/app_data.dart';
+import 'package:time_tracker/providers/app_data.dart';
 
 void main() {
   runApp(MyApp());

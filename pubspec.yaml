@@ -29,6 +29,8 @@ dependencies:
   settings_ui: ^1.0.0
   flutter_icons: ^1.1.0
   intl: ^0.17.0
+  sqflite:
+  path:
 
 
 
