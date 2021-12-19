@@ -1,5 +1,10 @@
 class NetworkConstants{
-  static const int timeoutTime = 20;
+  static const int TIMEOUT_TIME = 20;
+}
+
+class SPKeys{
+  static const String ACTION_KEY = "action";
+  static const String THEME_KEY = "theme";
 }
 
 class DBConstants{

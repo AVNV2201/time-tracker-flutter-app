@@ -50,9 +50,9 @@ class DbUtils{
 
   // DELETE OPERATIONS
 
-  Future<void> deleteById(int id) async {
+  Future<void> deleteById(int id, {String fieldName: "id"}) async {
     final db = await DBProvider.db.database;
-    await db.delete(tableName, where: "id = ?", whereArgs: [id]);
+    await db.delete(tableName, where: "$fieldName = ?", whereArgs: [id]);
   }
 
   Future<void> deleteAll() async {

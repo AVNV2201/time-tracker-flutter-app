@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:time_tracker/utils/DateTimeUtils.dart';
 
 class Action {
@@ -14,12 +16,19 @@ class Action {
     this.end,
   });
 
+  factory Action.createAction(int activityId) => Action(
+    activityId: activityId,
+    start: DateTime.now()
+  );
+
   factory Action.fromMap(Map<String, dynamic> map) => Action(
     id: map["id"],
     activityId: map["activity_id"],
     start: DateTimeUtils.fromSecondsEpoch(map["start"]),
     end: DateTimeUtils.fromSecondsEpoch(map["end"]),
   );
+
+  factory Action.fromJson(String json) => Action.fromMap(jsonDecode(json));
 
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {
@@ -31,6 +40,8 @@ class Action {
       map["id"] = id;
     return map;
   }
+
+  String toJson() => jsonEncode(toMap());
 
   @override
   String toString() {

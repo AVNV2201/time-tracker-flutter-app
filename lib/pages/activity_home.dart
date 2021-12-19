@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:time_tracker/models/activity.dart';
-import 'package:time_tracker/utils/activity_provider.dart';
+import 'package:time_tracker/providers/activity_provider.dart';
 
 class ActivityHome extends StatefulWidget {
   const ActivityHome({Key key}) : super(key: key);

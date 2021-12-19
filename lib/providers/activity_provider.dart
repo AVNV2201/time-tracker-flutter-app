@@ -1,4 +1,5 @@
 import 'package:time_tracker/models/activity.dart';
+import 'package:time_tracker/providers/action_provider.dart';
 import 'package:time_tracker/utils/constants.dart';
 import 'package:time_tracker/utils/db_utils.dart';
 
@@ -89,7 +90,7 @@ class ActivityProvider{
   }
 
   Future<void> deleteActivityById(int id) async {
-    // TO DO : Delete all the action with this activity_id
+    actionProvider.deleteActionByActivityId(id);
     _deleteActivityByParentId(id);
     await dbUtils.deleteById(id);
     _somethingChanged = true;
