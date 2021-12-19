@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:time_tracker/pages/action_home.dart';
 import 'package:time_tracker/pages/activity_home.dart';
+import 'package:time_tracker/pages/profile.dart';
 import 'package:time_tracker/pages/stats.dart';
 
 class Home extends StatefulWidget {
@@ -33,7 +34,7 @@ class _HomeState extends State<Home> {
   }
 
   void _goToProfile(){
-
+    Navigator.push(context, MaterialPageRoute(builder: (_) => Profile()));
   }
 
   void _onItemTapped(int index){
