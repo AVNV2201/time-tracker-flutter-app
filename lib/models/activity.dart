@@ -26,6 +26,8 @@ class Activity {
     active: true
   );
 
+  factory Activity.copy(Activity activity) => Activity.fromMap(activity.toMap());
+
   factory Activity.fromMap(Map<String, dynamic> map) => Activity(
     id: map["id"],
     parentId: map["parent_id"],

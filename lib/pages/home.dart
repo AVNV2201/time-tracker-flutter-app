@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:time_tracker/pages/action_home.dart';
-import 'package:time_tracker/pages/activity_list.dart';
+import 'package:time_tracker/pages/activity_home.dart';
 import 'package:time_tracker/pages/stats.dart';
 
 class Home extends StatefulWidget {
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
           setState(() => _selectedItem = index);
         },
         children: [
-          ActivityList(),
+          ActivityHome(),
           ActionHome(),
           Stats()
         ],

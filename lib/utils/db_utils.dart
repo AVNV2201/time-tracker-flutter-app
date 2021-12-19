@@ -23,6 +23,16 @@ class DbUtils{
     return res.isNotEmpty ? res : [] ;
   }
 
+  findByFieldId(String fieldName, int fieldId) async {
+    final db = await DBProvider.db.database;
+    var res = await db.query(
+      tableName,
+      where: "$fieldName = ?",
+      whereArgs: [fieldId]
+    );
+    return res.isNotEmpty ? res : [];
+  }
+
   Future<Map<String, dynamic>> findById(int id) async {
     final db = await DBProvider.db.database;
     var res =await  db.query(tableName, where: "id = ?", whereArgs: [id]);

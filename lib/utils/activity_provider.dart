@@ -4,6 +4,8 @@ import 'package:time_tracker/utils/db_utils.dart';
 
 class ActivityProvider{
 
+  final String _parentId = "parent_id";
+
   List<Activity> _activityList;
   DbUtils dbUtils;
   bool _somethingChanged;
@@ -75,7 +77,20 @@ class ActivityProvider{
 
   // DELETE OPERATIONS
 
+  Future<void> _deleteActivityByParentId(int parentId) async {
+    List res = await dbUtils.findByFieldId(_parentId, parentId);
+    if(res.isNotEmpty){
+      res.map((e) => Activity.fromMap(e))
+          .toList()
+          .forEach((activity) {
+            deleteActivityById(activity.id);
+      });
+    }
+  }
+
   Future<void> deleteActivityById(int id) async {
+    // TO DO : Delete all the action with this activity_id
+    _deleteActivityByParentId(id);
     await dbUtils.deleteById(id);
     _somethingChanged = true;
     await loadData();
