@@ -1,4 +1,29 @@
-int timeoutTime = 20;
+class NetworkConstants{
+  static const int timeoutTime = 20;
+}
+
+class DBConstants{
+  static const String DB_NAME = "testDb2.db";
+  static const String ACTIVITY_TABLE_NAME = "Activity";
+  static const String ACTION_TABLE_NAME = "Action";
+
+  // create table statements
+  static const String CREATE_ACTIVITY_TABLE = "CREATE TABLE $ACTIVITY_TABLE_NAME ("
+      "id INTEGER PRIMARY KEY,"
+      "parent_id INTEGER,"
+      "name TEXT,"
+      "created_at INTEGER,"
+      "updated_at INTEGER,"
+      "active BIT"
+      ")";
+
+  static const String CREATE_ACTION_TABLE = "CREATE TABLE $ACTION_TABLE_NAME ("
+      "id INTEGER PRIMARY KEY,"
+      "activity_id INTEGER,"
+      "start INTEGER,"
+      "end INTEGER"
+      ")";
+}
 
 class ErrorMessage{
   static const String unknownError = 'Something went wrong! \nPlease try again !';
