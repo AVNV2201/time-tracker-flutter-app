@@ -23,14 +23,31 @@ class ActivityProvider{
 
   // GET OPERATIONS
 
-  Future<List<Activity>> getAllActivity({bool active}) async {
+  Future<List<Activity>> getAllActivity({
+    bool active,
+    bool filterParentWise: false,
+    int parentId,
+    bool sortOnUpdatedAt: true
+  }) async {
     await loadData();
 
-    return _activityList
+    List<Activity> res = _activityList
         .where((activity){
           if(active == null) return true;
           return activity.active == active;
     }).toList();
+
+    if(filterParentWise){
+      res = res
+          .where((activity) => activity.parentId == parentId)
+          .toList();
+    }
+
+    if(sortOnUpdatedAt){
+      res.sort((a,b) => b.updatedAt.compareTo(a.updatedAt));
+    }
+
+    return res;
   }
 
   Future<Activity> getActivity(int id) async {
