@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:time_tracker/utils/constants.dart';
 
 class MyDialogs{
@@ -67,6 +68,18 @@ class MyDialogs{
 
   static Future<void> showErrorDialog(BuildContext context, {String message = ErrorMessage.unknownError}) async {
     await showInfoDialog(context, Icon(Icons.error), 'Error', message);
+  }
+
+  static Future<DateTime> showDatePickerDialog(BuildContext context) async {
+    return await DatePicker.showDatePicker(
+        context,
+      theme: DatePickerTheme(
+        itemStyle: TextStyle(color: Colors.white),
+        cancelStyle: TextStyle(color: Colors.red),
+        doneStyle: TextStyle(color: Colors.green),
+        backgroundColor: Colors.black
+      )
+    );
   }
 
 }

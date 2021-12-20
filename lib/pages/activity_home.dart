@@ -52,7 +52,7 @@ class _ActivityHomeState extends State<ActivityHome> {
     activityProvider.deleteActivityById(id);
   }
 
-  void _goToActivity(Activity activity) async {
+  void _goToActivity(Activity activity){
     Activity copied = Activity.copy(activity);
     setState(() {
       parentList.add(copied);

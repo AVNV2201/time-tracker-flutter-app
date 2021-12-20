@@ -59,7 +59,7 @@ class _ActionHomeState extends State<ActionHome> {
       appData.actionInProgress.end = DateTime.now();
       _selectedActivity.updatedAt = DateTime.now();
       actionProvider.addAction(appData.actionInProgress);
-      activityProvider.updateActivity(_selectedActivity);
+      activityProvider.touchActivity(_selectedActivity);
       appData.resetAction();
       setState(() {
         _actionRunning = false;
@@ -94,7 +94,7 @@ class _ActionHomeState extends State<ActionHome> {
                 backgroundColor: Colors.white,
                 radius: _startButtonRadius,
                 child: CircleAvatar(
-                  backgroundColor: Colors.green,
+                  backgroundColor: _actionRunning ? Colors.green[800] : Colors.orange,
                   radius: _startButtonRadius - 5,
                   child: _actionRunning ?
                       MyTimer(

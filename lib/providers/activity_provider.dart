@@ -76,6 +76,16 @@ class ActivityProvider{
     return await getActivity(id);
   }
 
+  Future<void> touchActivity(Activity activity) async {
+    while(activity.parentId != null){
+      activity.updatedAt = DateTime.now();
+      updateActivity(activity);
+      activity = await getActivity(activity.parentId);
+    }
+    activity.updatedAt = DateTime.now();
+    updateActivity(activity);
+  }
+
   // DELETE OPERATIONS
 
   Future<void> _deleteActivityByParentId(int parentId) async {
